@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { AppContext } from "../context/AppContext";
 import { useNavigate } from "react-router-dom";
 
-export const Login = () => {
+const Login = () => {
   const navigate = useNavigate();
   const [state, setState] = useState("Sign Up");
   const [email, setEmail] = useState("");
@@ -48,7 +48,7 @@ export const Login = () => {
     if (token) {
       navigate("/");
     }
-  }, [token]);
+  }, [token, navigate]);
 
   return (
     <form
