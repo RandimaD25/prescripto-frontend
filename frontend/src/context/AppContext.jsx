@@ -27,10 +27,6 @@ const AppContextProvider = (props) => {
     }
   };
 
-  useEffect(() => {
-    getDoctorsData();
-  }, []);
-
   const loadUserProfileData = async () => {
     try {
       const { data } = await axios.get(`${backendUrl}/api/user/get-profile`, {
@@ -47,14 +43,6 @@ const AppContextProvider = (props) => {
     }
   };
 
-  useEffect(() => {
-    if (token) {
-      loadUserProfileData();
-    } else {
-      setUserData(false);
-    }
-  }, [token]);
-
   const value = {
     doctors,
     getDoctorsData,
@@ -66,6 +54,18 @@ const AppContextProvider = (props) => {
     setUserData,
     loadUserProfileData,
   };
+
+  useEffect(() => {
+    getDoctorsData();
+  }, []);
+
+  useEffect(() => {
+    if (token) {
+      loadUserProfileData();
+    } else {
+      setUserData(false);
+    }
+  }, [token]);
 
   return (
     <AppContext.Provider value={value}>{props.children}</AppContext.Provider>
