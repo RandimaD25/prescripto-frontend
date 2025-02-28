@@ -79,9 +79,9 @@ const MyAppointments = () => {
         console.log(data);
       }
 
-      // if (data.session.url) {
-      //   window.location.href = data.session.url;
-      // }
+      if (data.session.url) {
+        window.location.href = data.session.url;
+      }
     } catch (error) {
       console.log(error);
       toast.error(error.message);
