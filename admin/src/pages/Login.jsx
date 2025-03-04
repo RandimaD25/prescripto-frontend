@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import { assets } from "../assets/assets_admin/assets";
+import { useContext, useState } from "react";
 import { AdminContext } from "../context/AdminContext";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -40,7 +39,9 @@ const Login = () => {
           toast.error(data.message);
         }
       }
-    } catch {}
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   return (
