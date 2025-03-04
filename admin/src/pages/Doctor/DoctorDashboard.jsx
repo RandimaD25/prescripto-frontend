@@ -11,7 +11,7 @@ const DoctorDashboard = () => {
     cancelAppointment,
     completeAppointment,
   } = useContext(DoctorContext);
-  const { slotDateFormat } = useContext(AppContext);
+  const { slotDateFormat, currency } = useContext(AppContext);
 
   useEffect(() => {
     if (dToken) {
@@ -27,7 +27,7 @@ const DoctorDashboard = () => {
             <img className="w-14" src={assets.earning_icon} alt="" />
             <div>
               <p className="text-xl font-semibold text-gray-600">
-                {dashData.earnings}
+                {currency} {dashData.earnings}
               </p>
               <p className="text-gray-400">Earnings</p>
             </div>
